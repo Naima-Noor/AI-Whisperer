@@ -14,6 +14,9 @@ import play from '../../Pages/images/play.jpg';
 import styles from './styles.module.css';
 import logo from '../../Pages/images/logo.png';
 
+
+
+
 const Footer = () => {
   return (
     <footer className={styles.footer} style={{ backgroundColor: '#E3E6F3' }}>
@@ -64,20 +67,17 @@ const Footer = () => {
         {/* About Us */}
         <div className={styles.col}>
           <h4>About Us</h4>
-          <Link to="/about" className={styles.link}>About us</Link>
-          <Link to="/delivery" className={styles.link}>Delivery Information</Link>
-          <Link to="/privacy" className={styles.link}>Privacy Policy</Link>
-          <Link to="/terms" className={styles.link}>Terms and Conditions</Link>
-          <Link to="/contact" className={styles.link}>Contact Us</Link>
+          <Link to="/About" className={styles.link}>About us</Link>
+          <Link to="/PrivacyPolicy" className={styles.link}>Privacy Policy</Link>
+          <Link to="/TermsModal" className={styles.link}>Terms and Conditions</Link>
+          <Link to="/ContactSection" className={styles.link}>Contact Us</Link>
         </div>
 
         {/* My Account */}
         <div className={styles.col}>
           <h4>My Account</h4>
-          <Link to="/signin" className={styles.link}>Sign In</Link>
-          <Link to="/cart" className={styles.link}>View Cart</Link>
-          <Link to="/wishlist" className={styles.link}>My Wishlist</Link>
-          <Link to="/track-order" className={styles.link}>Track my order</Link>
+          <Link to="/signup" className={styles.link}>Sign Up</Link>
+          <Link to="/login" className={styles.link}>Login</Link>
           <Link to="/help" className={styles.link}>Help</Link>
         </div>
 

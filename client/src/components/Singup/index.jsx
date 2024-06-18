@@ -44,90 +44,33 @@ const Signup = () => {
 
     const handleSignup = async () => {
         try {
-            // Validate email first
-            const validateUrl = `https://100085.pythonanywhere.com/api/v1/mail/4f0bd662-8456-4b2e-afa6-293d4135facf/?type=validate`;
-            const validateData = {
-                email: data.email,
-                name: "",
-                fromName: "",
-                fromEmail: "",
-                subject: "",
-                body: ""
-            };
-            const validateResponse = await axios.post(validateUrl, validateData);
+            // Simulated signup process without email validation and sending email
 
-            if (!validateResponse.data.success) {
-                setError(validateResponse.data.message);
-                setIsLoading(false); 
-                return;
-            }
-
-
-            // Proceed with signup if email is valid
-            const signupUrl = "http://localhost:8080/api/users"; 
+            // Replace with your actual signup endpoint
+            const signupUrl = "http://localhost:8080/api/users";
             await axios.post(signupUrl, data);
 
-            // Send email with login details
-            const sendEmailUrl = `https://100085.pythonanywhere.com/api/v1/mail/4f0bd662-8456-4b2e-afa6-293d4135facf/?type=send-email`;
-            const sendEmailData = {
-                email: data.email,
-                name: `${data.firstName} ${data.lastName}`,
-                fromName: "AI-Whisperer",
-                fromEmail: "Ai-whisperer@gmail.com",
-                subject: "Welcome to AI-Whisperer!",
-                body: `
-                <html>
-                <body style="font-family: Arial, sans-serif; background-color: #f0f0f0; color: #333; line-height: 1.6;">
-    
-                    <!-- Header -->
-                    <div style="background-color: #3bb19b; padding: 20px; text-align: center;">
-    <img src="https://getaicommissions.com/members/images/ai-whisperer-new-logo.png" alt="Logo" style="max-width: 250px; height: auto;">
-                     </div>
+            // Simulated success message
+            setSuccessMessage("User created successfully!");
 
-    
-                    <!-- Content -->
-                    <div style="padding: 20px;">
-                        
-                        <p>Thank you for registering with Ai Whsperer. We are excited to have you on board!</p>
-                        <p>Your account has been successfully created. Below are your login details:</p>
-                        <ul style="list-style: none; padding-left: 0;">
-                            <li><strong>Email:</strong> ${data.email}</li>
-                            <li><strong>Password:</strong> ${data.password}</li>
-                        </ul>
-                        <p>You can now log in to Your App and start exploring our features.</p>
-                        <p>If you have any questions or need assistance, feel free to contact our support team at support@AI-Whisperer.com.</p>
-                        <p>We hope you have a great experience with us!</p>
-                    </div>
-    
-                    <!-- Footer -->
-                    <div style="background-color: #3bb19b; padding: 10px; text-align: center; color: #fff;">
-                        &copy; ${new Date().getFullYear()} AI Whisperer. All rights reserved.
-                    </div>
-                    <br><br><br><br><br><br><br><br><br>
-                    
-    
-                </body>
-            </html>
-        `,
-    };
-            await axios.post(sendEmailUrl, sendEmailData);
-          setSuccessMessage("User created successfully!"); 
-
+            // Redirect to login page after a delay
             setTimeout(() => {
-                
                 navigate("/login");
             }, 1500);
-        }   catch (error) {
-                        if (
-                            error.response &&
-                            error.response.status >= 400 &&
-                            error.response.status <= 500
-                        ) {
-                            setError(error.response.data.message);
-                        }
-                    }
-                    setIsLoading(false);
-                };
+        } catch (error) {
+            // Handle errors
+            if (
+                error.response &&
+                error.response.status >= 400 &&
+                error.response.status <= 500
+            ) {
+                setError(error.response.data.message);
+            }
+        } finally {
+            setIsLoading(false); // Ensure loading indicator is turned off
+        }
+    };
+
     const handleSubmit = async (e) => {
         e.preventDefault();
         if (!isChecked) {
@@ -222,11 +165,26 @@ const Signup = () => {
                             </span>
                         </div>
                         {successMessage && (
-                            <div className={styles.success_msg} style={{ position: 'absolute',top: 30, left: 190, color: '#3bb19b', backgroundColor: '#ffffff', padding: '10px 20px', borderRadius: 5 }}>
-                        {successMessage}
+                            <div
+                                className={styles.success_msg}
+                                style={{
+                                    position: "absolute",
+                                    top: 120,
+                                    left: 190,
+                                    color: "#3bb19b",
+                                    backgroundColor: "#ffffff",
+                                    padding: "10px 20px",
+                                    borderRadius: 5,
+                                }}
+                            >
+                                {successMessage}
                             </div>
                         )}
-                        <button type="submit" className={styles.green_btn} disabled={isLoading}>
+                        <button
+                            type="submit"
+                            className={styles.green_btn}
+                            disabled={isLoading}
+                        >
                             {isLoading ? "Signing Up..." : "Sign Up"}
                         </button>
                     </form>

@@ -77,7 +77,7 @@ const Login = () => {
                 </div>
             </div>
             {successMessage && (
-                <div className="success-msg" style={{ position: 'absolute', top: 30, left: 190, backgroundColor: '#3bb19b', color: '#ffffff', padding: '10px 20px', borderRadius: 5 }}>
+                <div className="success-msg" style={{ position: 'absolute', top: 120, left: 190, backgroundColor: '#3bb19b', color: '#ffffff', padding: '10px 20px', borderRadius: 5 }}>
                     {successMessage}
                 </div>
             )}

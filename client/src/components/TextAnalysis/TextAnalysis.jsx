@@ -18,7 +18,7 @@
 
 //     const handleSubmit = async (event) => {
 //         event.preventDefault();
-        
+
 //         if (!text.trim() && !file) {
 //             setError('Please enter text or select a file');
 //             return;
@@ -45,24 +45,120 @@
 //     };
 
 //     return (
-//         <div>
-//             <form onSubmit={handleSubmit}>
-//                 <textarea value={text} onChange={handleTextChange} placeholder="Enter text to analyze" />
-//                 <input type="file" onChange={handleFileChange} />
-//                 <button type="submit">Analyze Text</button>
-//             </form>
+//         <div style={{
+//             position: 'relative',
+//             minHeight: '100vh',
+//             display: 'flex',
+//             justifyContent: 'center',
+//             alignItems: 'center',
+//             backgroundImage: 'url(https://th.bing.com/th/id/R.a2801b3a0125c67e028ac6f1c0ece84a?rik=qfB5P9%2bKNc5LPg&pid=ImgRaw&r=0)',
+//             backgroundSize: 'cover',
+//             backgroundRepeat: 'no-repeat',
+//             backgroundPosition: 'center',
+//         }}>
 
-//             {error && <p style={{ color: 'red' }}>{error}</p>}
-//             {result && (
-//                 <div>
-//                     <h2>Analysis Result:</h2>
-//                     <p>Number of Words: {result.num_words}</p>
-//                     <p>Number of Sentences: {result.num_sentences}</p>
-//                     <p>Number of Paragraphs: {result.num_paragraphs}</p>
-//                     <p>Original Text:</p>
-//                     <pre>{result.original_text}</pre>
-//                 </div>
-//             )}
+//             <div style={{
+//                 position: 'absolute',
+//                 top: 0,
+//                 left: 0,
+//                 width: '100%',
+//                 height: '100%',
+//                 opacity: '0',
+//                 // backdropFilter: 'blur(20px)',
+//                 zIndex: 2,
+//             }}></div>
+
+//             <div style={{
+//                 zIndex: 2,
+
+//                 borderRadius: '8px',
+//                 boxShadow: '0 4px 8px rgba(0,0,0,0.1)',
+//                 maxWidth: '600px',
+//                 width: '100%',
+//             }}>
+
+//                 <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
+//                     <h2 style={{ marginBottom: '20px', textAlign: 'center', color: '#333' }}>Text Analyzer</h2>
+//                     <textarea
+//                         value={text}
+//                         onChange={handleTextChange}
+//                         placeholder="Enter text to analyze"
+//                         style={{
+//                             width: '100%',
+//                             minHeight: '150px',
+//                             padding: '10px',
+//                             fontSize: '16px',
+//                             borderRadius: '4px',
+//                             border: '1px solid #ccc',
+//                             boxSizing: 'border-box',
+//                             opacity: '0.5'
+//                         }}
+//                     />
+
+//                     <div style={{
+//                         padding: '10px',
+//                         fontSize: '16px',
+//                         borderRadius: '4px',
+//                         display: 'flex',
+//                         justifyContent: 'center',
+//                         alignItems: 'center',
+
+
+//                     }}>
+
+//                         <input
+//                             type="file"
+//                             onChange={handleFileChange}
+
+//                         />
+//                     </div>
+                    
+//                     <div>
+//                     <button
+//                         type="submit"
+//                         style={{
+//                             paddingLeft: '5px', // adjust left padding
+//                             paddingRight: '5px', // adjust right padding
+//                             paddingTop: '10px',
+//                             paddingBottom: '10px',
+//                             fontSize: '18px',
+//                             backgroundColor: '#3bb19b',
+//                             color: '#fff',
+//                             borderRadius: '4px',
+//                             cursor: 'pointer',
+//                             justifyContent: 'center',
+//                             alignItems: 'center',
+//                         }}
+//                     >
+//                         Analyze Text
+//                     </button>
+//                     </div>
+//                 </form>
+
+//                 {error && <p style={{ color: 'red', textAlign: 'center', marginTop: '20px' }}>{error}</p>}
+//                 {result && (
+//                     <div style={{
+//                         marginTop: '20px',
+//                         padding: '20px',
+//                         backgroundColor: '#fff',
+//                         borderRadius: '8px',
+//                         boxShadow: '0 2px 4px rgba(0,0,0,0.1)'
+//                     }}>
+//                         <h2 style={{ marginBottom: '10px', textAlign: 'center', color: '#333' }}>Analysis Result</h2>
+//                         <p style={{ marginBottom: '8px' }}>Number of Words: {result.num_words}</p>
+//                         <p style={{ marginBottom: '8px' }}>Number of Sentences: {result.num_sentences}</p>
+//                         <p style={{ marginBottom: '8px' }}>Number of Paragraphs: {result.num_paragraphs}</p>
+//                         <p style={{ marginBottom: '8px' }}>Original Text:</p>
+//                         <pre style={{
+//                             whiteSpace: 'pre-wrap',
+//                             padding: '10px',
+//                             backgroundColor: '#f9f9f9',
+//                             borderRadius: '4px',
+//                             border: '1px solid #ccc'
+//                         }}>{result.original_text}</pre>
+//                     </div>
+//                 )}
+//             </div>
 //         </div>
 //     );
 // };
@@ -88,7 +184,7 @@ const UploadComponent = () => {
 
     const handleSubmit = async (event) => {
         event.preventDefault();
-        
+
         if (!text.trim() && !file) {
             setError('Please enter text or select a file');
             return;
@@ -115,37 +211,110 @@ const UploadComponent = () => {
     };
 
     return (
-        <div className="bg-gray-200 min-h-screen flex justify-center items-center">
-            <div className="bg-white p-8 rounded shadow-lg">
-                <form onSubmit={handleSubmit} className="space-y-4">
-                    <textarea 
-                        value={text} 
-                        onChange={handleTextChange} 
-                        placeholder="Enter text to analyze" 
-                        className="w-full p-2 border border-gray-300 rounded focus:outline-none focus:border-blue-500"
+        <div style={{
+            position: 'relative',
+            minHeight: '100vh',
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            backgroundImage: 'url(https://th.bing.com/th/id/R.a2801b3a0125c67e028ac6f1c0ece84a?rik=qfB5P9%2bKNc5LPg&pid=ImgRaw&r=0)',
+            backgroundSize: 'cover',
+            backgroundRepeat: 'no-repeat',
+            backgroundPosition: 'center',
+          
+        }}>
+
+            <div style={{
+                position: 'absolute',
+                top: 0,
+                left: 0,
+                width: '100%',
+                height: '100%',
+                opacity: '0',
+                zIndex: 2,
+                padding:'5px'
+            }}></div>
+
+            <div style={{
+                zIndex: 2,
+                borderRadius: '8px',
+                boxShadow: '0 4px 8px rgba(0,0,0,0.1)',
+                maxWidth: '600px',
+                width: '100%',
+                padding:'10px'
+
+            }}>
+
+                <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
+                    <h2 style={{ marginBottom: '20px', textAlign: 'center', color: '#333' }}>Text Analyzer</h2>
+                    <textarea
+                        value={text}
+                        onChange={handleTextChange}
+                        placeholder="Enter text to analyze"
+                        style={{
+                            width: '100%',
+                            minHeight: '150px',
+                            padding: '10px',
+                            fontSize: '16px',
+                            borderRadius: '4px',
+                            border: '1px solid #3bb19b',
+                            borderWidth:'2px',
+                            boxSizing: 'border-box',
+                            opacity: '0.5',
+                            
+                        }}
                     />
-                    <input 
-                        type="file" 
-                        onChange={handleFileChange} 
-                        className="p-2 border border-gray-300 rounded focus:outline-none focus:border-blue-500"
-                    />
-                    <button 
-                        type="submit" 
-                        className="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 focus:outline-none focus:bg-blue-600"
-                    >
-                        Analyze Text
-                    </button>
+
+                    <div style={{
+                        padding: '10px',
+                        display: 'flex',
+                        justifyContent: 'center',
+                        alignItems: 'center',
+                    }}>
+                        <input
+                            type="file"
+                            onChange={handleFileChange}
+                        />
+                    </div>
+
+                    <div style={{ textAlign: 'center' }}>
+                        <button type="submit" style={{
+                            padding: '10px 5px',
+                            backgroundColor: '#3bb19b',
+                            borderRadius:'4px',
+                            color: 'white',
+                            textAlign: 'center',
+                            border: 'none',
+                        }}>
+                            Analyze Text
+                        </button>
+                    </div>
                 </form>
 
-                {error && <p className="text-red-500 mt-4">{error}</p>}
+                {error && <p style={{ color: 'white', textAlign: 'center', margin: '5px 0' ,backgroundColor:'#f34646',
+	padding: '15px', borderRadius:'5px'}}>{error}</p>}
+                
                 {result && (
-                    <div className="mt-4">
-                        <h2 className="text-xl font-bold mb-2">Analysis Result:</h2>
-                        <p>Number of Words: {result.num_words}</p>
-                        <p>Number of Sentences: {result.num_sentences}</p>
-                        <p>Number of Paragraphs: {result.num_paragraphs}</p>
-                        <p className="mt-2 font-medium">Original Text:</p>
-                        <pre className="bg-gray-100 p-2 rounded">{result.original_text}</pre>
+                    <div style={{
+                        marginTop: '20px',
+                        padding: '20px',
+                        
+                        borderRadius: '8px',
+                        boxShadow: '0 2px 4px rgba(0,0,0,0.1)'
+                        
+                    }}>
+                        <h2 style={{ marginBottom: '10px', textAlign: 'center', color: '#333' }}>Analysis Result</h2>
+                        <p style={{ marginBottom: '8px' }}>Number of Words: {result.num_words}</p>
+                        <p style={{ marginBottom: '8px' }}>Number of Sentences: {result.num_sentences}</p>
+                        <p style={{ marginBottom: '8px' }}>Number of Paragraphs: {result.num_paragraphs}</p>
+                        <p style={{ marginBottom: '8px' }}>Original Text:</p>
+                        <pre style={{
+                            whiteSpace: 'pre-wrap',
+                            padding: '10px',
+                            borderRadius: '6px',
+                            border: '1px solid #ccc',
+                            opacity:'0.5',
+                        }}>{result.original_text}</pre>
                     </div>
                 )}
             </div>
