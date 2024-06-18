@@ -82,7 +82,7 @@
 // // function App() {
 // //     const user = localStorage.getItem('token');
 // //   return (
-    
+
 // //       <div>
 // //         <Header />
 // //         <Routes>
@@ -94,7 +94,7 @@
 // //         </Routes>
 // //         <Footer />
 // //       </div>
-    
+
 // //   );
 // // }
 
@@ -119,25 +119,25 @@ function App() {
 	const user = localStorage.getItem("token");
 
 	return (
-        <div>
-        <Header/>
-		<Routes>
-			{user && <Route path="/" exact element={<Main />} />}
-			<Route path="/signup" exact element={<Signup />} />
-			<Route path="/login" exact element={<Login />} />
-			{/* <Route path="/" element={<Navigate replace to="/login" />} /> */}
-			<Route path="/text-analysis" exact element={<TextAnalysis />} />
-             <Route path="/" element={<Home />} />
- <Route path="/ContactSection" element={<ContactSection />} />
- <Route path="/About" element={<About />} />
- <Route path="/Pricing" element={<Pricing />} />
- <Route path="/ServicesPage" element={<ServicesPage />} />
- <Route path="/PrivacyPolicy" element={<Privacypolicy />} />
- <Route path="/TermsModal" element={<TermsModal />} />
- <Route path="/ServicesPage" element={<ServicesPage />} />
-		</Routes>
-        <Footer/>
-        </div>
+		<div>
+			<Header />
+			<Routes>
+				{user && <Route path="/" exact element={<Main />} />}
+				<Route path="/signup" exact element={<Signup />} />
+				<Route path="/login" exact element={<Login />} />
+				{/* <Route path="/" element={<Navigate replace to="/login" />} /> */}
+				<Route path="/text-analysis" exact element={<TextAnalysis />} />
+				<Route path="/" element={<Home />} />
+				<Route path="/ContactSection" element={<ContactSection />} />
+				<Route path="/About" element={<About />} />
+				<Route path="/Pricing" element={<Pricing />} />
+				<Route path="/ServicesPage" element={<ServicesPage />} />
+				<Route path="/PrivacyPolicy" element={<Privacypolicy />} />
+				<Route path="/TermsModal" element={<TermsModal />} />
+				<Route path="/ServicesPage" element={<ServicesPage />} />
+			</Routes>
+			<Footer />
+		</div>
 	);
 }
 

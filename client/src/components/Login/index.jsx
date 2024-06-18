@@ -22,6 +22,7 @@ const Login = () => {
             const { data: res } = await axios.post(url, data);
             localStorage.setItem("token", res.data);
             setSuccessMessage("Logged In Successfully!"); 
+            localStorage.setItem("isLoggedIn", true);
             setTimeout(() => {
                 window.location = "/";
             }, 1500);
