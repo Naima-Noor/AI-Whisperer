@@ -1,10 +1,16 @@
 import React from 'react';
 import feature1 from './images/feature1.png';
-import { Link } from 'react-router-dom';
+// import { Link, Navigate } from 'react-router-dom';
 import { useState } from 'react';
 import FAQ from './images/FAQ.png';
 
+// import React, { useState } from 'react';
+// import feature1 from './images/feature1.png';
+import { Link, useNavigate } from 'react-router-dom';
+
 function MainSection() {
+  const isLoggedIn = localStorage.getItem('token') !== null;
+
   return (
     <section
       id="main"
@@ -19,7 +25,8 @@ function MainSection() {
         flexDirection: 'column',
         alignItems: 'flex-start',
       }}
-    > <br />
+    >
+      <br />
       <h4 style={{ paddingBottom: '15px' }}>Welcome to AI Whisperer</h4>
       <h2 style={{ color: '#088178' }}>
         Unleashing the Power of <br />
@@ -34,28 +41,50 @@ function MainSection() {
         <br />
         and improve your documents like never before.
       </p>
-      {/* Use Link with styles applied directly */}
-      <Link
-        to="/signup"
-        style={{
-          backgroundColor: '#088178',
-          color: 'whitesmoke',
-          border: '0',
-          padding: '14px 5px',
-          textAlign: 'center',
-          textDecoration: 'none',
-          fontSize: '1em',
-          display: 'inline-block',
-          width: '22%',
-          whiteSpace: 'nowrap',
-          borderRadius: '20px',
-        }}
-      >
-        Get Started
-      </Link>
+      {/* Conditionally render Link based on login status */}
+      {isLoggedIn ? (
+        <Link
+          to="/aicontent"  // Replace with the appropriate route for AI content
+          style={{
+            backgroundColor: '#088178',
+            color: 'whitesmoke',
+            border: '0',
+            padding: '14px 5px',
+            textAlign: 'center',
+            textDecoration: 'none',
+            fontSize: '1em',
+            display: 'inline-block',
+            width: '22%',
+            whiteSpace: 'nowrap',
+            borderRadius: '20px',
+          }}
+        >
+          AI Content
+        </Link>
+      ) : (
+        <Link
+          to="/signup"
+          style={{
+            backgroundColor: '#088178',
+            color: 'whitesmoke',
+            border: '0',
+            padding: '14px 5px',
+            textAlign: 'center',
+            textDecoration: 'none',
+            fontSize: '1em',
+            display: 'inline-block',
+            width: '22%',
+            whiteSpace: 'nowrap',
+            borderRadius: '20px',
+          }}
+        >
+          Get Started
+        </Link>
+      )}
     </section>
   );
 }
+
 
 function FeatureSection() {
     return (
