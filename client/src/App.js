@@ -14,6 +14,7 @@ import AIContent from './Pages/AIContent';
 import ServicesPage from './Pages/Services';
 import PrivacyPolicy from './components/Singup/privacypolicy'; 
 import TermsModal from './components/Singup/TermsModal'; 
+import ScrollToTop from './components/ScrollToTop';
 
 function App() {
     const user = localStorage.getItem('token');
@@ -21,6 +22,7 @@ function App() {
     return (
         
             <div>
+				 <ScrollToTop />
                 <Header />
                 <Routes>
                     {user ? (

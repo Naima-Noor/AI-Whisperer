@@ -1,11 +1,7 @@
 import React from 'react';
 import feature1 from './images/feature1.png';
-// import { Link, Navigate } from 'react-router-dom';
 import { useState } from 'react';
 import FAQ from './images/FAQ.png';
-
-// import React, { useState } from 'react';
-// import feature1 from './images/feature1.png';
 import { Link, useNavigate } from 'react-router-dom';
 
 function MainSection() {
