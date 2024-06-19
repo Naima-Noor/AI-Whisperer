@@ -24,7 +24,7 @@ const Login = () => {
             setSuccessMessage("Logged In Successfully!"); 
             localStorage.setItem("isLoggedIn", true);
             setTimeout(() => {
-                window.location = "/";
+                window.location = "/"; //agr home py jana hai tou / agr ai content py jana hai to AIContent.
             }, 1500);
         } catch (error) {
             if (
