@@ -2,7 +2,7 @@
 
 import React from 'react';
 import serviceImage from './images/service.png'; // Adjust path as per your project structure
-import UploadComponent from '../components/TextAnalysis/TextAnalysis';
+
 
 function Services1 ()  {
   return (
@@ -178,7 +178,7 @@ function ServicesPage() {
       <div>
         <Services1 />
         <Services2 />
-        <UploadComponent />
+        
       </div>
     );
   }

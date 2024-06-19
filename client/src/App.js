@@ -110,6 +110,7 @@ import Home from './Pages/Home';
 import ContactSection from './Pages/Contact';
 import About from './Pages/About';
 import Pricing from './Pages/Pricing';
+import AIContent from './Pages/AIContent';
 import ServicesPage from "./Pages/Services";
 import Privacypolicy from "./components/Singup/privacypolicy";
 import TermsModal from "./components/Singup/TermsModal";
@@ -135,6 +136,8 @@ function App() {
 				<Route path="/PrivacyPolicy" element={<Privacypolicy />} />
 				<Route path="/TermsModal" element={<TermsModal />} />
 				<Route path="/ServicesPage" element={<ServicesPage />} />
+				<Route path="/AIContent" element={<AIContent/>} />
+				
 			</Routes>
 			<Footer />
 		</div>
