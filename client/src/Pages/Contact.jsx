@@ -29,7 +29,7 @@ function ContactSection() {
         {/* Contact Details */}
         <div className="details" style={{ width: '40%', color: '#088178' }}>
           <span style={{ fontSize: '16px' }}>GET IN TOUCH</span>
-          <h2 style={{ fontSize: '26px', lineHeight: '35px', padding: '20px 0', color: '#088178' }}>Visit our shop or contact us today</h2>
+          <h2 style={{ fontSize: '26px', lineHeight: '35px', padding: '20px 0', color: '#088178' }}>Visit us or contact us today</h2>
           <h3 style={{ fontSize: '22px', marginBottom: '10px', color: '#088178' }}>Head Office</h3>
           <ul style={{ padding: 0 }}>
             <li style={{ display: 'flex', alignItems: 'center', padding: '10px 0' }}>

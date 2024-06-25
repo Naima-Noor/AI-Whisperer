@@ -1,5 +1,5 @@
 import React from 'react';
-
+import aboutus from './images/aboutus.jpeg';
 const About = () => {
   return (
     <React.Fragment>
@@ -22,17 +22,20 @@ const About = () => {
 
       {/* About Section */}
       <section id="abouthead" className="section-p1" style={{ display: 'flex', alignItems: 'center', padding: '40px 88px' }}>
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTacdySB9K4cE2YoVRnNjdqZ5FZ8DRIwBXuzQ&usqp=CAU" alt="" style={{
+        <img src={aboutus} alt="" style={{
           width: '100%',
-          height: '300px',
+          height: '500px',
           objectFit: 'cover',
         }} />
         <div style={{ paddingLeft: '90px' }}>
-          <h2>About Us</h2>
-          <p>Welcome to our ecommerce website! We are a dedicated team of professionals committed to providing you with an exceptional online shopping experience. Our website offers a wide range of products from various categories, all of which are carefully curated to ensure that you receive only the highest quality items. Our goal is to make your shopping experience as seamless and enjoyable as possible, from browsing our extensive selection to placing your order and receiving your products. We take pride in providing excellent customer service and are always here to help with any questions or concerns you may have. Thank you for choosing our website for your shopping needs, and we look forward to serving you</p>
-          <p>Empowering the world to design</p>
-          <br /><br />
-          <p>Thanks for visiting and knowing about us. We are sure your experience with us would be great.</p>
+          <h2 style={{color:'#3bb19b'}}>About Us</h2>
+          <p>Welcome to AI Whisperer, where innovation meets integrity in text analysis. Our mission is to provide advanced solutions for text verification and analysis, ensuring authenticity and quality in every piece of content. 
+          </p>
+          <p>At AI Whisperer, we understand the growing importance of distinguishing between human-generated and AI-generated text in today's digital world. Our platform leverages cutting-edge technology to offer comprehensive text analysis, helping users maintain the highest standards of originality and clarity. Whether you're in education, research, journalism, or content creation, AI Whisperer is designed to meet your needs with precision and efficiency.
+          </p>
+          <p>Our team consists of experts in artificial intelligence, natural language processing, and software development, all dedicated to creating a reliable and user-friendly tool. We continuously innovate and improve our services to stay ahead of the curve, providing you with the best possible experience.
+          </p>
+        <p>  Join us on our journey to revolutionize text analysis and ensure the integrity of written content. With AI Whisperer, you can trust that your words are truly your own.</p>
         </div>
       </section>
 

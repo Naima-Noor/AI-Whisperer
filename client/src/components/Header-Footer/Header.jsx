@@ -204,7 +204,7 @@ function Header() {
                         </>
                     ) : (
                         <>
-                            <li style={{ padding: '0 20px', position: 'relative', background: '#ffffff', borderRadius: '20px' }}>
+                            <li style={{ padding: '0 20px', position: 'relative', background: '#ffffff', borderRadius: '20px',boxShadow:'1px 1px 0.5px 0px rgba(0, 0, 0, 0.1)' }}>
                                 <Link to="/Login" style={{
                                     textDecoration: 'none',
                                     fontSize: '16px',
@@ -217,7 +217,7 @@ function Header() {
                                     Login
                                 </Link>
                             </li>
-                            <li style={{ padding: '0 20px', position: 'relative', background: '#3bb19b', borderRadius: '20px' }}>
+                            <li style={{ padding: '0 20px', position: 'relative', background: '#3bb19b', borderRadius: '20px',marginLeft:'10px' }}>
                                 <Link to="/Signup" style={{
                                     textDecoration: 'none',
                                     fontSize: '16px',
