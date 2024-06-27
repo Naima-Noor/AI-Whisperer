@@ -65,7 +65,7 @@ function MainSection() {
             borderRadius: '20px',
           }}
         >
-          AI Content
+          Content Authenticity Checker
         </Link>
       ) : (
         <Link

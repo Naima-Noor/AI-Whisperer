@@ -12,7 +12,7 @@ import appStoreImage from '../../Pages/images/appstore.jpg';
 import pay from '../../Pages/images/pay.png';
 import play from '../../Pages/images/play.jpg';
 import styles from './styles.module.css';
-import logo from '../../Pages/images/logo.png';
+import logoo from '../../Pages/images/logoo.png';
 
 
 
@@ -24,7 +24,7 @@ const Footer = () => {
       {/* AI Whisperer Logo */}
       <div className={styles.row}>
         <div className={styles.col}>
-          <img src={logo} alt="logo" style={{ width: '200px', height: 'auto', marginBottom: '0px' }} />
+          <img src={logoo} alt="logo" style={{ width: '200px', height: 'auto', marginBottom: '0px' }} />
         </div>
       </div>
 

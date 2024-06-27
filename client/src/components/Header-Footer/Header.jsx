@@ -120,7 +120,7 @@
 // export default Header;
 import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom'; // Import useNavigate hook
-import logo from '../../Pages/images/logo.png';
+import logoo from '../../Pages/images/logoo.png';
 
 function Header() {
     const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -155,7 +155,7 @@ function Header() {
         }}>
             {/* Logo aligned to the left */}
             <div>
-                <img src={logo} alt="logo" style={{ width: '200px', height: 'auto' }} />
+                <img src={logoo} alt="logo" style={{ width: '200px', height: 'auto' }} />
             </div>
             {/* Menu and buttons aligned to the right */}
             <div style={{ flex: '1', textAlign: 'right' }}>
@@ -186,7 +186,7 @@ function Header() {
                     {isLoggedIn ? (
                         <>
                             <li style={{ padding: '0 20px', position: 'relative' }}>
-                                <Link to="/AIContent" style={{ textDecoration: 'none', color: '#088178' }}>AI Content</Link>
+                                <Link to="/AIContent" style={{ textDecoration: 'none', color: '#088178' }}>Content Detector</Link>
                             </li>
                             <li style={{ padding: '0 20px', position: 'relative', background: '#3bb19b', borderRadius: '20px' }}>
                                 <button onClick={handleLogout} style={{
