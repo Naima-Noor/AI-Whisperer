@@ -111,7 +111,7 @@ const UploadComponent = () => {
             }}>
 
                 <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
-                    <h2 style={{ marginBottom: '20px', textAlign: 'center', color: '#333' }}>Text Analyzer</h2>
+                    <h2 style={{ marginBottom: '20px', textAlign: 'center', color: '#333' , fontSize:'38px'}}>Content Authenticity Checker</h2>
                     <textarea
                         value={text}
                         onChange={handleTextChange}
@@ -174,13 +174,14 @@ const UploadComponent = () => {
                         <p style={{ marginBottom: '8px' }}>Number of Sentences: {result.num_sentences}</p>
                         <p style={{ marginBottom: '8px' }}>Number of Paragraphs: {result.num_paragraphs}</p>
                         <p style={{ marginBottom: '8px' }}>Original Text:</p>
-                        <pre style={{
+                        <p style={{
                             whiteSpace: 'pre-wrap',
                             padding: '10px',
                             borderRadius: '6px',
-                            border: '1px solid #ccc',
-                            opacity:'0.5',
-                        }}>{result.original_text}</pre>
+                            border: '1px solid #3bb19b',
+                            color: 'black',
+                            opacity:'0.7',
+                        }}>{result.original_text}</p>
                     </div>
                 )}
             </div>

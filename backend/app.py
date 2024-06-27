@@ -15,12 +15,14 @@ def count_words(text):
     return len(words)
 
 def count_sentences(text):
-    sentences = re.split(r'[.!?]+', text)
+    sentences = re.split(r'(?<!\w\.\w.)(?<![A-Z][a-z]\.)(?<=\.|\?|\!)\s', text)
     return len(sentences)
 
+
 def count_paragraphs(text):
-    paragraphs = text.split('\n\n')
+    paragraphs = re.split(r'\n\s*\n+', text.rstrip('\n'))
     return len(paragraphs)
+
 
 def analyze_text_from_docx(docx_file):
     doc = Document(docx_file)
@@ -29,34 +31,38 @@ def analyze_text_from_docx(docx_file):
         text += paragraph.text + '\n'
     return text
 
+from PyPDF2 import PdfReader
+import fitz  # PyMuPDF
+
 def analyze_text_from_pdf(pdf_file):
     text = ''
     try:
-        # Try PyMuPDF for advanced extraction (fallback to fitz if fails)
+        # Try PyPDF2 (PdfReader) for text extraction
         try:
             reader = PdfReader(pdf_file)
             for page_num in range(len(reader.pages)):
                 page = reader.pages[page_num]
                 page_text = page.extract_text()
-                if page_text.strip():
-                    print(f"Page {page_num + 1} text:", page_text)
-                    text += page_text
-        except:
-            print("PyMuPDF failed, using fitz as fallback")
-            # Fallback to fitz if PyMuPDF fails
-            pdf_document = fitz.open(pdf_file)
-            print("Number of pages:", len(pdf_document))
-            for page_num in range(len(pdf_document)):
-                page = pdf_document.load_page(page_num)
-                page_text = page.get_text()
-                if page_text.strip():
-                    print(f"Page {page_num + 1} text:", page_text)
-                    text += page_text
-            pdf_document.close()
-        return text
+                if page_text:
+                    text += page_text + '\n\n'  # Add double newline for paragraphs
+            return text.strip()
+        except Exception as e:
+            print(f"PyPDF2 failed: {e}")
+        
+        # Fallback to fitz (PyMuPDF) if PyPDF2 fails
+        pdf_document = fitz.open(pdf_file)
+        for page_num in range(len(pdf_document)):
+            page = pdf_document.load_page(page_num)
+            page_text = page.get_text()
+            if page_text:
+                text += page_text + '\n\n'  # Add double newline for paragraphs
+        pdf_document.close()
+        return text.strip()
+
     except Exception as e:
-        app.logger.error(f"Error processing PDF file: {e}")
+        print(f"Error processing PDF file: {e}")
         return ''
+
 
 
 @app.route('/analyze', methods=['POST'])
