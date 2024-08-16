@@ -44,7 +44,7 @@ const UploadComponent = () => {
 
         if (!user) {
             // Redirect to login page or show a login prompt
-            navigate('/login'); // Replace with your actual login route
+            navigate('/login');
             return;
         }
 
