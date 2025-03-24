@@ -13,10 +13,7 @@ backend/venv/
 *.dll
 *.lib
 
-/client
 /node_modules
-
-client/
 
 /app/.env
 
