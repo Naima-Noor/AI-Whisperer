@@ -1,0 +1,22 @@
+/client/node_modules
+/client/.env
+
+/server/node_modules
+/server/.env
+
+backend/assets/
+backend/venv/
+
+
+# Ignore large model files
+*.pth
+*.dll
+*.lib
+
+/client
+/node_modules
+
+client/
+
+/app/.env
+
